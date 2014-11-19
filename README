@@ -1,0 +1,3 @@
+This is a simple SpringMVC + hibernate project
+it receive json format data from http request, and persist data into mysql database
+

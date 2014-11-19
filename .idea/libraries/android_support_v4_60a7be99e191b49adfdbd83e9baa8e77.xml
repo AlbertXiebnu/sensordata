@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="android-support-v4-60a7be99e191b49adfdbd83e9baa8e77">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../SensorCollect/bin/dexedLibs/android-support-v4-60a7be99e191b49adfdbd83e9baa8e77.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
