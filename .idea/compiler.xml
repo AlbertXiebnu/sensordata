@@ -14,7 +14,7 @@
       <entry name="!?*.clj" />
     </wildcardResourcePatterns>
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="false">
+      <profile default="true" name="Default" enabled="true">
         <processorPath useClasspath="true" />
       </profile>
       <profile default="false" name="Maven default annotation processors profile" enabled="true">
@@ -26,10 +26,6 @@
         <module name="sensordata" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Client" target="1.7" />
-      <module name="sensordata" target="1.7" />
-    </bytecodeTargetLevel>
   </component>
 </project>
 

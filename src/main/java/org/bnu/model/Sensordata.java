@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 /**
  * Created by xie on 14-11-6.
@@ -55,7 +56,16 @@ public class Sensordata {
     @Column(name = "type")
     @Getter@Setter
     private String type;
+    @Column(name="position")
+    @Getter@Setter
+    private String position;
     @Column(name = "timestamp")
     @Getter@Setter
     private String timestamp;
+    @Column(name="imei")
+    @Getter@Setter
+    private String imei;
+    @Column(name = "number")
+    @Getter@Setter
+    private String number;
 }
