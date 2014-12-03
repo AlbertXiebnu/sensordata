@@ -31,9 +31,8 @@ public class SensordataService {
     public List<Sensordata> findAll(){
         return sensordataDao.findAll();
     }
+
     public void saveAll(List<Sensordata> list){
-        for(Sensordata sensordata:list){
-            sensordataDao.save(sensordata);
-        }
+        sensordataDao.saveAll(list);
     }
 }

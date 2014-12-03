@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import sun.management.Sensor;
 
 import java.util.List;
 
@@ -28,6 +29,13 @@ public class SensordataDao {
 
     public void delete(Integer id){
         getSession().get(Sensordata.class,id);
+    }
+
+    public void saveAll(List<Sensordata> list){
+        Session session=getSession();
+        for(Sensordata sensordata:list){
+            session.saveOrUpdate(sensordata);
+        }
     }
 
     @Transactional(readOnly = true)
