@@ -2,7 +2,9 @@
 /out
 /bin
 /lib
-/.idea
+.idea/*
+/target
 *.jar
 *.zip
 *.class
+*.iml

@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import java.util.UUID;
 
 /**
  * Created by xie on 14-11-6.
@@ -62,6 +63,12 @@ public class Sensordata {
     @Column(name = "timestamp")
     @Getter@Setter
     private String timestamp;
+    @Column(name ="uuid")
+    @Getter@Setter
+    private UUID uuid;
+    @Column(name = "seq")
+    @Getter@Setter
+    private int seq;
     @Column(name="imei")
     @Getter@Setter
     private String imei;
