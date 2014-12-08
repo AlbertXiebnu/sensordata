@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlSeeAlso;
+import java.util.Comparator;
 import java.util.UUID;
 
 /**
@@ -12,7 +12,7 @@ import java.util.UUID;
  */
 @Entity
 @Table(name = "sensordata")
-public class Sensordata {
+public class Sensordata implements Comparator{
     @Id
     @GeneratedValue
     @Column(name="id")
@@ -75,4 +75,24 @@ public class Sensordata {
     @Column(name = "number")
     @Getter@Setter
     private String number;
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        Sensordata s1=(Sensordata)o1;
+        Sensordata s2=(Sensordata)o2;
+        int flag=s1.getUuid().compareTo(s2.getUuid());
+        if(flag==0){
+            int r1=s1.getSeq();
+            int r2=s2.getSeq();
+            if(r1==r2){
+                return 0;
+            }else if(r1>r2){
+                return 1;
+            }else{
+                return -1;
+            }
+        }else{
+            return flag;
+        }
+    }
 }

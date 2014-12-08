@@ -15,6 +15,8 @@ import org.springframework.web.multipart.MultipartRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,7 +35,7 @@ public class UploadController {
     @ResponseBody
     public String uploadData(@RequestParam("jsondata") String json,@RequestParam("dirName")String dirName){
         try {
-            saveToFile(json,dirName);
+            saveToDisk(json, dirName);
             return WebStatus.UPLOAD_SUCCESSFULL;
         }catch (Exception e) {
             e.printStackTrace();
@@ -41,7 +43,63 @@ public class UploadController {
         }
     }
 
-    public void saveToFile(String jsondata,String dirName){
+
+
+    @RequestMapping(value = "/prepare",method = RequestMethod.GET)
+    @ResponseBody
+    public String prepareDirectory(@RequestParam("dirName")String dirName){
+        File dir=new File(path+dirName);
+        boolean flag=true;
+        if(!dir.exists()){
+            dir.mkdirs();
+            System.out.println("create directory:"+dir.getPath());
+        }
+        if(flag){
+            return WebStatus.FILE_PREPARE_SUCCESS;
+        }else{
+            return WebStatus.FILE_PREPARE_FAIL;
+        }
+    }
+
+    @RequestMapping(value = "/finish",method=RequestMethod.GET)
+    public String finishUpload(@RequestParam("dirName")String dirName){
+        String dir=path+dirName;
+        saveToDatabase(dir);
+        return WebStatus.UPLOAD_SUCCESSFULL;
+    }
+
+    public void saveToDatabase(String dir){
+        File directory=new File(dir);
+        File[] files=directory.listFiles();
+        List<Sensordata> list=new ArrayList<Sensordata>();
+        for(int i=0;i<files.length;i++){
+            List<Sensordata> res=readFile(files[i]);
+            list.addAll(res);
+        }
+        Collections.sort(list,new Sensordata());
+        sensordataService.saveAll(list);
+    }
+
+    public List<Sensordata> readFile(File file){
+        StringBuilder builder=new StringBuilder();
+        try {
+            BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+            String line="";
+            while((line=br.readLine())!=null){
+                builder.append(line);
+            }
+            String jsondata=builder.toString();
+            List<Sensordata> list=JSON.parseArray(jsondata,Sensordata.class);
+            return list;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void saveToDisk(String jsondata,String dirName){
         String filepath=path+dirName;
         String fileName=filepath+File.separator+UUID.randomUUID().toString();
         BufferedWriter out=null;
@@ -53,22 +111,6 @@ public class UploadController {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    @RequestMapping(value = "/prepare",method = RequestMethod.GET)
-    @ResponseBody
-    public String createDirectory(@RequestParam("dirName")String dirName){
-        File dir=new File(path+dirName);
-        boolean flag=true;
-        if(!dir.exists()){
-            dir.mkdirs();
-            System.out.println("create directory:"+dir.getPath());
-        }
-        if(flag){
-            return WebStatus.FILE_PREPARE_SUCCESS;
-        }else{
-            return WebStatus.FILE_PREPARE_FAIL;
         }
     }
 
