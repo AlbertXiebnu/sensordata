@@ -35,6 +35,7 @@ public class UploadController {
     @ResponseBody
     public String uploadData(@RequestParam("jsondata") String json,@RequestParam("dirName")String dirName){
         try {
+            System.out.println("save the data to directory:"+dirName+"...");
             saveToDisk(json, dirName);
             return WebStatus.UPLOAD_SUCCESSFULL;
         }catch (Exception e) {
@@ -42,8 +43,6 @@ public class UploadController {
             return WebStatus.UPLOAD_FAILED;
         }
     }
-
-
 
     @RequestMapping(value = "/prepare",method = RequestMethod.GET)
     @ResponseBody
@@ -64,6 +63,7 @@ public class UploadController {
     @RequestMapping(value = "/finish",method=RequestMethod.GET)
     public String finishUpload(@RequestParam("dirName")String dirName){
         String dir=path+dirName;
+        System.out.println("save the files in directory:"+dirName+" to database");
         saveToDatabase(dir);
         return WebStatus.UPLOAD_SUCCESSFULL;
     }
@@ -90,6 +90,7 @@ public class UploadController {
             }
             String jsondata=builder.toString();
             List<Sensordata> list=JSON.parseArray(jsondata,Sensordata.class);
+            br.close();
             return list;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
