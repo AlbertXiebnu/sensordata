@@ -10,37 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<title>移动健康-动作数据</title>
 		<meta name="description" content="提供呈现采集数据的web访问" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- basic styles -->
-
-        <link href="../css/bootstrap.min.css" rel="stylesheet" />
-        <link href="../css/font-awesome.min.css" rel="stylesheet"/>
-
-        <!--[if IE 7]>
-        <link rel="stylesheet" href="../css/font-awesome-ie7.min.css" />
-        <![endif]-->
-
-        <!-- page specific plugin styles -->
-        <!-- fonts -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
-
-        <!-- ace styles -->
-        <link rel="stylesheet" href="../css/ace.min.css" />
-        <link rel="stylesheet" href="../css/ace-rtl.min.css" />
-        <link rel="stylesheet" href="../css/ace-skins.min.css" />
-
-        <!--[if lte IE 8]>
-        <link rel="stylesheet" href="../css/ace-ie.min.css" />
-        <![endif]-->
-
-        <!-- inline styles related to this page -->
-        <!-- ace settings handler -->
-        <script src="../js/ace-extra.min.js"></script>
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-        <script src="../js/html5shiv.js"></script>
-        <script src="../js/respond.min.js"></script>
-        <![endif]-->
+        <%@include file="header.html"%>
 	</head>
 
 	<body>
@@ -608,7 +578,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 															<div class="clearfix">
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's avatar" src="avatars/user.jpg" />
+																		<img alt="Bob Doe's avatar" src="../avatars/user.jpg" />
 																	</div>
 
 																	<div class="body">
@@ -661,7 +631,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Joe Doe's avatar" src="avatars/avatar2.png" />
+																		<img alt="Joe Doe's avatar" src="../avatars/avatar2.png" />
 																	</div>
 
 																	<div class="body">
@@ -714,7 +684,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Jim Doe's avatar" src="avatars/avatar.png" />
+																		<img alt="Jim Doe's avatar" src="../avatars/avatar.png" />
 																	</div>
 
 																	<div class="body">
@@ -767,7 +737,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Alex Doe's avatar" src="avatars/avatar5.png" />
+																		<img alt="Alex Doe's avatar" src="../avatars/avatar5.png" />
 																	</div>
 
 																	<div class="body">
@@ -788,7 +758,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's avatar" src="avatars/avatar2.png" />
+																		<img alt="Bob Doe's avatar" src="../avatars/avatar2.png" />
 																	</div>
 
 																	<div class="body">
@@ -809,7 +779,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Susan's avatar" src="avatars/avatar3.png" />
+																		<img alt="Susan's avatar" src="../avatars/avatar3.png" />
 																	</div>
 
 																	<div class="body">
@@ -830,7 +800,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Phil Doe's avatar" src="avatars/avatar4.png" />
+																		<img alt="Phil Doe's avatar" src="../avatars/avatar4.png" />
 																	</div>
 
 																	<div class="body">
@@ -851,7 +821,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Alexa Doe's avatar" src="avatars/avatar1.png" />
+																		<img alt="Alexa Doe's avatar" src="../avatars/avatar1.png" />
 																	</div>
 
 																	<div class="body">
@@ -888,7 +858,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 															<div class="comments">
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's Avatar" src="avatars/avatar.png" />
+																		<img alt="Bob Doe's Avatar" src="../avatars/avatar.png" />
 																	</div>
 
 																	<div class="body">
@@ -944,7 +914,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Jennifer's Avatar" src="avatars/avatar1.png" />
+																		<img alt="Jennifer's Avatar" src="../avatars/avatar1.png" />
 																	</div>
 
 																	<div class="body">
@@ -978,7 +948,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Joe's Avatar" src="avatars/avatar2.png" />
+																		<img alt="Joe's Avatar" src="../avatars/avatar2.png" />
 																	</div>
 
 																	<div class="body">
@@ -1012,7 +982,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Rita's Avatar" src="avatars/avatar3.png" />
+																		<img alt="Rita's Avatar" src="../avatars/avatar3.png" />
 																	</div>
 
 																	<div class="body">
@@ -1079,7 +1049,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<div class="dialogs">
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Alexa's Avatar" src="avatars/avatar1.png" />
+																<img alt="Alexa's Avatar" src="../avatars/avatar1.png" />
 															</div>
 
 															<div class="body">
@@ -1103,7 +1073,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="John's Avatar" src="avatars/avatar.png" />
+																<img alt="John's Avatar" src="../avatars/avatar.png" />
 															</div>
 
 															<div class="body">
@@ -1127,7 +1097,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Bob's Avatar" src="avatars/user.jpg" />
+																<img alt="Bob's Avatar" src="../avatars/user.jpg" />
 															</div>
 
 															<div class="body">
@@ -1152,7 +1122,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Jim's Avatar" src="avatars/avatar4.png" />
+																<img alt="Jim's Avatar" src="../avatars/avatar4.png" />
 															</div>
 
 															<div class="body">
@@ -1176,7 +1146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Alexa's Avatar" src="avatars/avatar1.png" />
+																<img alt="Alexa's Avatar" src="../avatars/avatar1.png" />
 															</div>
 
 															<div class="body">

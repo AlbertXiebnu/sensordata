@@ -29,10 +29,13 @@
         </property>
     </bean>
 
-
-    <!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" /> -->
-
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
     </bean>
+    
+    <mvc:resources mapping="/image/**" location="/image/" cache-period="31556926" />
+    <mvc:resources mapping="/avatars/**" location="/avatars/" cache-period="31556926" />
+    <mvc:resources mapping="/css/**" location="/css/" cache-period="31556926" />
+    <mvc:resources mapping="/js/**" location="/js/" cache-period="31556926" />
+    <mvc:resources mapping="/font/**" location="/font/" cache-period="31556926" />
 
 </beans>

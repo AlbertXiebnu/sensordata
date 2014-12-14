@@ -6,14 +6,16 @@
          version="3.0">
 
     <display-name>sensordata</display-name>
+
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>/jsp/index.jsp</welcome-file>
     </welcome-file-list>
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring.xml,classpath:spring-*.xml</param-value>
     </context-param>
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
