@@ -65,7 +65,7 @@ public class Sensordata implements Comparator{
     private String timestamp;
     @Column(name ="uuid")
     @Getter@Setter
-    private UUID uuid;
+    private String uuid;
     @Column(name = "seq")
     @Getter@Setter
     private int seq;
