@@ -35,4 +35,12 @@ public class SensordataService {
     public void saveAll(List<Sensordata> list){
         sensordataDao.saveAll(list);
     }
+
+    public List<Sensordata> findSummary(){
+        return sensordataDao.findSummary();
+    }
+
+    public List<Sensordata> findByUuid(String uuid){
+        return sensordataDao.findByUuid(uuid);
+    }
 }

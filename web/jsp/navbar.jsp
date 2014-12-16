@@ -10,7 +10,7 @@
 
     <div class="navbar-container" id="navbar-container">
         <div class="navbar-header pull-left">
-            <a href="/index.jsp" class="navbar-brand">
+            <a href="index.jsp" class="navbar-brand">
                 <small>
                     <i class="icon-leaf"></i>
                     移动健康动作数据管理

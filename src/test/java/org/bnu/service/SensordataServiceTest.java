@@ -11,6 +11,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by xie on 14-12-9.
  */
@@ -30,5 +32,13 @@ public class SensordataServiceTest {
         sensordata.setAccY(1.2);
         sensordata.setAccZ(1.3);
         sensordataService.save(sensordata);
+    }
+
+    @Test
+    public void testFindSummary(){
+        List<Sensordata> list=sensordataService.findSummary();
+        for(Sensordata sensordata:list){
+            System.out.println(sensordata.getUuid().toString());
+        }
     }
 }

@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <div class="sidebar" id="sidebar">
     <script type="text/javascript">
         try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
@@ -145,7 +149,7 @@
 
             <ul class="submenu">
                 <li class="active">
-                    <a href="tables.jsp">
+                    <a href="<%=basePath%>table/default">
                         <i class="icon-double-angle-right"></i>
                         传感器数据
                     </a>

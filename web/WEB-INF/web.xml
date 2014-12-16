@@ -8,7 +8,7 @@
     <display-name>sensordata</display-name>
 
     <welcome-file-list>
-        <welcome-file>/jsp/index.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
     <context-param>
