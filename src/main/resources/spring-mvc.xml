@@ -36,6 +36,7 @@
     <mvc:resources mapping="/avatars/**" location="/avatars/" cache-period="31556926" />
     <mvc:resources mapping="/css/**" location="/css/" cache-period="31556926" />
     <mvc:resources mapping="/js/**" location="/js/" cache-period="31556926" />
-    <mvc:resources mapping="/font/**" location="/font/" cache-period="31556926" />
+    <mvc:resources mapping="/fonts/**" location="/fonts/" cache-period="31556926" />
+    <mvc:resources mapping="/html/**" location="/html/" cache-period="31556926" />
 
 </beans>
