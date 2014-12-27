@@ -31,7 +31,7 @@
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -87,20 +87,27 @@
         <div class="hr hr-20 dotted"></div>
 
         <div class="row">
-            <div class="col-md-6">
-                <div id="picture-acc"></div>
-            </div>
-            <div class="col-md-6">
-                <div id="picture-gyro"></div>
+            <div class="col-xs-12 col-md-12">
+                <div id="picture-acc" style="width:100%;"></div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-6">
-                <div id="picture-mag"></div>
+            <div class="col-xs-12 col-md-12">
+                <div id="picture-gyro" style="width:100%;"></div>
             </div>
-            <div class="col-md-6">
-                <div id="picture-orient"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div id="picture-mag" style="width:100%;"></div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div id="picture-orient" style="width:100%;"></div>
             </div>
         </div>
 
@@ -282,9 +289,9 @@
 
         function pictureAcc(url){
             $.getJSON(url,function(json){
-                var r="date,accX,accY,accZ\n";
+                var r="id,accX,accY,accZ\n";
                 for(i=0;i<json.length;i++){
-                    r+=json[i].date;
+                    r+=json[i].id;
                     r+=","+json[i].accX;
                     r+=","+json[i].accY;
                     r+=","+json[i].accZ+"\n";
@@ -304,9 +311,9 @@
 
         function pictureGyro(url){
             $.getJSON(url,function(json){
-                var r="date,gyroX,gyroY,gyroZ\n";
+                var r="id,gyroX,gyroY,gyroZ\n";
                 for(i=0;i<json.length;i++){
-                    r+=json[i].date;
+                    r+=json[i].id;
                     r+=","+json[i].gyroX;
                     r+=","+json[i].gyroY;
                     r+=","+json[i].gyroZ+"\n";
@@ -326,9 +333,9 @@
 
         function pictureMag(url){
             $.getJSON(url,function(json){
-                var r="date,magX,magY,magZ\n";
+                var r="id,magX,magY,magZ\n";
                 for(i=0;i<json.length;i++){
-                    r+=json[i].date;
+                    r+=json[i].id;
                     r+=","+json[i].magX;
                     r+=","+json[i].magY;
                     r+=","+json[i].magZ+"\n";
@@ -348,9 +355,9 @@
 
         function pictureOrient(url){
             $.getJSON(url,function(json){
-                var r="date,orientX,orientY,orientZ\n";
+                var r="id,orientX,orientY,orientZ\n";
                 for(i=0;i<json.length;i++){
-                    r+=json[i].date;
+                    r+=json[i].id;
                     r+=","+json[i].orientX;
                     r+=","+json[i].orientY;
                     r+=","+json[i].orientZ+"\n";

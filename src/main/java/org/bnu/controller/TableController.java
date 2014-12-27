@@ -47,7 +47,7 @@ public class TableController {
         if(type.equals("acc")) {
             for (Sensordata sensordata : list) {
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("date", sensordata.getTimestamp());
+                jsonObject.put("id", sensordata.getSeq());
                 jsonObject.put("accX", sensordata.getAccX());
                 jsonObject.put("accY", sensordata.getAccY());
                 jsonObject.put("accZ", sensordata.getAccZ());
@@ -56,7 +56,7 @@ public class TableController {
         }else if(type.equals("gyro")){
             for (Sensordata sensordata : list) {
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("date", sensordata.getTimestamp());
+                jsonObject.put("id", sensordata.getSeq());
                 jsonObject.put("gyroX", sensordata.getGyroX());
                 jsonObject.put("gyroY", sensordata.getGyroY());
                 jsonObject.put("gyroZ", sensordata.getGyroZ());
@@ -65,7 +65,7 @@ public class TableController {
         }else if(type.equals("mag")){
             for(Sensordata sensordata:list){
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("date", sensordata.getTimestamp());
+                jsonObject.put("id", sensordata.getSeq());
                 jsonObject.put("magX", sensordata.getMagnetX());
                 jsonObject.put("magY", sensordata.getMagnetY());
                 jsonObject.put("magZ", sensordata.getMagnetZ());
@@ -74,7 +74,7 @@ public class TableController {
         }else{
             for(Sensordata sensordata:list){
                 JSONObject jsonObject=new JSONObject();
-                jsonObject.put("date",sensordata.getTimestamp());
+                jsonObject.put("id",sensordata.getSeq());
                 jsonObject.put("orientX",sensordata.getOrientX());
                 jsonObject.put("orientY",sensordata.getOrientY());
                 jsonObject.put("orientZ",sensordata.getOrientZ());
