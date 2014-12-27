@@ -61,6 +61,7 @@ public class UploadController {
     }
 
     @RequestMapping(value = "/finish",method=RequestMethod.GET)
+    @ResponseBody
     public String finishUpload(@RequestParam("dirName")String dirName){
         String dir=path+dirName;
         System.out.println("save the files in directory:"+dirName+" to database");
