@@ -41,4 +41,10 @@ public class SensordataServiceTest {
             System.out.println(sensordata.getUuid().toString());
         }
     }
+
+    @Test
+    public void testFindTimeByCateAndPosition(){
+        String json=sensordataService.findTimeByCateAndPosition();
+        System.out.println(json);
+    }
 }

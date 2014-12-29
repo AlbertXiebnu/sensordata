@@ -1,7 +1,11 @@
 package org.bnu.dao;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import ognl.IteratorPropertyAccessor;
 import org.bnu.model.Sensordata;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Projection;
@@ -13,6 +17,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import sun.management.Sensor;
 
+import java.math.BigInteger;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -73,5 +79,40 @@ public class SensordataDao {
         Criteria criteria=getSession().createCriteria(Sensordata.class);
         criteria.add(Restrictions.eq("uuid",uuid));
         return criteria.list();
+    }
+
+    @Transactional(readOnly = true)
+    public String findTimeByCateAndPosition(){
+        Iterator result=getSession().createSQLQuery("select type,position,count(*) from sensordata " +
+                "group by type,position").list().iterator();
+        JSONArray data=new JSONArray();
+        JSONObject series1=new JSONObject();
+        JSONObject series2=new JSONObject();
+        series1.put("key","coat pocket");
+        series2.put("key", "trousers pocket");
+        JSONArray values1=new JSONArray();
+        JSONArray values2=new JSONArray();
+        while(result.hasNext()){
+            Object[] row= (Object[]) result.next();
+            String type= (String) row[0];
+            String position= (String) row[1];
+            BigInteger count= (BigInteger) row[2];
+            if(position.equals("coat pocket")){
+                JSONObject value=new JSONObject();
+                value.put("label",type);
+                value.put("value",count.doubleValue()/25/60);
+                values1.add(value);
+            }else if(position.equals("trousers pocket")){
+                JSONObject value=new JSONObject();
+                value.put("label",type);
+                value.put("value",count.doubleValue()/25/60);
+                values2.add(value);
+            }
+        }
+        series1.put("values",values1);
+        series2.put("values",values2);
+        data.add(series1);
+        data.add(series2);
+        return data.toJSONString();
     }
 }

@@ -43,4 +43,6 @@ public class SensordataService {
     public List<Sensordata> findByUuid(String uuid){
         return sensordataDao.findByUuid(uuid);
     }
+
+    public String findTimeByCateAndPosition(){ return sensordataDao.findTimeByCateAndPosition(); }
 }

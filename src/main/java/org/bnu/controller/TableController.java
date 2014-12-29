@@ -91,4 +91,10 @@ public class TableController {
         return JSON.toJSONString(list);
     }
 
+    @RequestMapping(value = "/bardata",method = RequestMethod.GET)
+    @ResponseBody
+    public String getBarData(){
+        return sensordataService.findTimeByCateAndPosition();
+    }
+
 }
