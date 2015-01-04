@@ -45,4 +45,8 @@ public class SensordataService {
     }
 
     public String findTimeByCateAndPosition(){ return sensordataDao.findTimeByCateAndPosition(); }
+
+    public String findUserTimeAccumulation(){ return sensordataDao.findUserTimeAccumulation(); }
+
+    public String findTimeByCateAndPosition(String imei){ return sensordataDao.findTimeByCateAndPosition(imei); }
 }

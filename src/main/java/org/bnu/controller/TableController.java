@@ -97,4 +97,18 @@ public class TableController {
         return sensordataService.findTimeByCateAndPosition();
     }
 
+    @RequestMapping(value="/userinfo",method = RequestMethod.GET)
+    @ResponseBody
+    public String getUserTimeAccumulation(){
+        String json=sensordataService.findUserTimeAccumulation();
+        return json;
+    }
+
+    @RequestMapping(value = "/userinfodetial",method = RequestMethod.GET)
+    @ResponseBody
+    public String getUserTimeAccumationByImei(@RequestParam("imei") String imei){
+        String json=sensordataService.findTimeByCateAndPosition(imei);
+        return json;
+    }
+
 }
