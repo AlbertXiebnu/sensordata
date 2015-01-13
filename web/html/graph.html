@@ -70,36 +70,40 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-6 col-md-6" align="center">
-                <table id="table-user"
-                        data-toggle="table"
-                        data-url="/sensordata/table/userinfo"
-                        data-search="true"
-                        data-striped="true"
-                        data-show-refresh="true"
-                        data-show-columns="true"
-                        data-pagination="true">
-                    <thead>
-                        <tr>
-                            <th data-field="state" data-checkbox="true"></th>
-                            <th data-field="user">user</th>
-                            <th data-field="imei">imei</th>
-                            <th data-field="minutes" data-sortable="true" data-formatter="simpleFormatter">minutes</th>
-                            <th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents"
-                                data-events="operateEvents" data-align="center">Item Operate</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="col-xs-6 col-md-6" align="center">
+            <div class="col-xs-12 col-md-12" align="center">
                 <div id="chart">
                     <svg></svg>
                 </div>
             </div>
         </div>
 
+        <br>
+        <br>
+
         <div class="row">
             <div class="col-xs-6 col-md-6" align="center">
+                <table id="table-user"
+                       data-toggle="table"
+                       data-url="/sensordata/table/userinfo"
+                       data-search="true"
+                       data-striped="true"
+                       data-show-refresh="true"
+                       data-show-columns="true"
+                       data-pagination="true">
+                    <thead>
+                    <tr>
+                        <th data-field="state" data-checkbox="true"></th>
+                        <th data-field="user">user</th>
+                        <th data-field="imei">imei</th>
+                        <th data-field="minutes" data-sortable="true" data-formatter="simpleFormatter">minutes</th>
+                        <th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents"
+                            data-events="operateEvents" data-align="center">Item Operate</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="col-xs-6 col-md-6">
                 <div id="detailchart">
                     <svg></svg>
                 </div>

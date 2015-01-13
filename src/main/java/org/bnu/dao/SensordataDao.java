@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -69,6 +70,7 @@ public class SensordataDao {
                 .add(Projections.property("number"),"number")
                 .add(Projections.property("uuid"),"uuid")
                 .add(Projections.groupProperty("uuid")));
+        criteria.addOrder(Order.desc("timestamp"));
         criteria.setResultTransformer(new AliasToBeanResultTransformer(Sensordata.class));
         return criteria.list();
     }
@@ -76,7 +78,7 @@ public class SensordataDao {
     @Transactional(readOnly = true)
     public List<Sensordata> findByUuid(String uuid){
         Criteria criteria=getSession().createCriteria(Sensordata.class);
-        criteria.add(Restrictions.eq("uuid",uuid));
+        criteria.add(Restrictions.eq("uuid", uuid));
         return criteria.list();
     }
 
