@@ -111,6 +111,18 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div id="picture-gravity" style="width:100%;"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div id="picture-linearAcc" style="width:100%;"></div>
+            </div>
+        </div>
+
     </div><!-- /.container -->
 
 
@@ -249,6 +261,42 @@
                         formatter: simpleFormatter
                     },
                     {
+                        field: 'gravityX',
+                        title: 'gravityX',
+                        align: 'left',
+                        formatter: simpleFormatter
+                    },
+                    {
+                        field: 'gravityY',
+                        title: 'gravityY',
+                        align: 'left',
+                        formatter: simpleFormatter
+                    },
+                    {
+                        field: 'gravityZ',
+                        title: 'gravityZ',
+                        align: 'left',
+                        formatter: simpleFormatter
+                    },
+                    {
+                        field: 'linearAccX',
+                        title: 'linearAccX',
+                        align: 'left',
+                        formatter: simpleFormatter
+                    },
+                    {
+                        field: 'linearAccY',
+                        title: 'linearAccY',
+                        align: 'left',
+                        formatter: simpleFormatter
+                    },
+                    {
+                        field: 'linearAccZ',
+                        title: 'linearAccZ',
+                        align: 'left',
+                        formatter: simpleFormatter
+                    },
+                    {
                         field: 'timestamp',
                         title: 'timestamp',
                         align: 'left'
@@ -285,6 +333,8 @@
             pictureGyro(baseUrl+"&type=gyro");
             pictureMag(baseUrl+"&type=mag");
             pictureOrient(baseUrl+"&type=orient");
+            pictureGravity(baseUrl+"&type=gravity");
+            pictureLinearAcc(baseUrl+"&type=linearAcc");
         }
 
         function pictureAcc(url){
@@ -363,17 +413,63 @@
                     r+=","+json[i].orientZ+"\n";
                 }
                 g=new Dygraph(
-                        document.getElementById("picture-orient"),
+                    document.getElementById("picture-orient"),
+                    r,
+                    {
+                        legend: 'always',
+                        title: 'Orientation',
+                        rollPeriod:7,
+                        showRoller:true
+                    }
+                );
+            });
+        }
+
+        function pictureGravity(url){
+            $.getJSON(url,function(json){
+            var r="id,gravityX,gravityY,gravityZ\n";
+                for(i=0;i<json.length;i++){
+                    r+=json[i].id;
+                    r+=","+json[i].gravityX;
+                    r+=","+json[i].gravityY;
+                    r+=","+json[i].gravityZ+"\n";
+                }
+                g=new Dygraph(
+                    document.getElementById("picture-gravity"),
+                    r,
+                    {
+                        legend: 'always',
+                        title: 'Gravity',
+                        rollPeriod:7,
+                        showRoller:true
+                    }
+                );
+            });
+        }
+
+
+        function pictureLinearAcc(url){
+            $.getJSON(url,function(json){
+                var r="id,linearAccX,linearAccY,linearAccZ\n";
+                for(i=0;i<json.length;i++){
+                    r+=json[i].id;
+                    r+=","+json[i].linearAccX;
+                    r+=","+json[i].linearAccY;
+                    r+=","+json[i].linearAccZ+"\n";
+                }
+                g=new Dygraph(
+                        document.getElementById("picture-linearAcc"),
                         r,
                         {
                             legend: 'always',
-                            title: 'Orientation',
+                            title: 'Linear Acceleration',
                             rollPeriod:7,
                             showRoller:true
                         }
                 );
             });
         }
+
     </script>
 </body>
 </html>

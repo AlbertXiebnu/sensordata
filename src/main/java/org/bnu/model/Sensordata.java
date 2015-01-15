@@ -54,6 +54,24 @@ public class Sensordata implements Comparator{
     @Column(name = "orientZ")
     @Getter@Setter
     private Double orientZ;
+    @Column(name="gravityX")
+    @Getter@Setter
+    private Double gravityX;
+    @Column(name="gravityY")
+    @Getter@Setter
+    private Double gravityY;
+    @Column(name="gravityZ")
+    @Getter@Setter
+    private Double gravityZ;
+    @Column(name="linearAccX")
+    @Getter@Setter
+    private Double linearAccX;
+    @Column(name="linearAccY")
+    @Setter@Getter
+    private Double linearAccY;
+    @Column(name="linearAccZ")
+    @Setter@Getter
+    private Double linearAccZ;
     @Column(name = "type")
     @Getter@Setter
     private String type;

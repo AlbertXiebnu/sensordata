@@ -71,13 +71,31 @@ public class TableController {
                 jsonObject.put("magZ", sensordata.getMagnetZ());
                 jsonArray.add(jsonObject);
             }
-        }else{
+        }else if(type.equals("orient")){
             for(Sensordata sensordata:list){
                 JSONObject jsonObject=new JSONObject();
                 jsonObject.put("id",sensordata.getSeq());
                 jsonObject.put("orientX",sensordata.getOrientX());
                 jsonObject.put("orientY",sensordata.getOrientY());
                 jsonObject.put("orientZ",sensordata.getOrientZ());
+                jsonArray.add(jsonObject);
+            }
+        }else if(type.equals("gravity")){
+            for(Sensordata sensordata:list){
+                JSONObject jsonObject=new JSONObject();
+                jsonObject.put("id",sensordata.getSeq());
+                jsonObject.put("gravityX",sensordata.getGravityX());
+                jsonObject.put("gravityY",sensordata.getGravityY());
+                jsonObject.put("gravityZ",sensordata.getGravityZ());
+                jsonArray.add(jsonObject);
+            }
+        }else if(type.equals("linearAcc")){
+            for(Sensordata sensordata:list){
+                JSONObject jsonObject=new JSONObject();
+                jsonObject.put("id",sensordata.getSeq());
+                jsonObject.put("linearAccX",sensordata.getLinearAccX());
+                jsonObject.put("linearAccY",sensordata.getLinearAccY());
+                jsonObject.put("linearAccZ",sensordata.getLinearAccZ());
                 jsonArray.add(jsonObject);
             }
         }
