@@ -90,9 +90,9 @@ public class Sensordata implements Comparator{
     @Column(name="imei")
     @Getter@Setter
     private String imei;
-    @Column(name = "number")
+    @Column(name = "direction")
     @Getter@Setter
-    private String number;
+    private String direction;
 
     @Override
     public int compare(Object o1, Object o2) {

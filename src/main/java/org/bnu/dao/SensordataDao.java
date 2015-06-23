@@ -67,7 +67,7 @@ public class SensordataDao {
                 .add(Projections.property("position"),"position")
                 .add(Projections.property("timestamp"),"timestamp")
                 .add(Projections.property("imei"),"imei")
-                .add(Projections.property("number"),"number")
+                .add(Projections.property("direction"),"direction")
                 .add(Projections.property("uuid"),"uuid")
                 .add(Projections.groupProperty("uuid")));
         criteria.addOrder(Order.desc("timestamp"));
@@ -107,10 +107,16 @@ public class SensordataDao {
         JSONArray data=new JSONArray();
         JSONObject series1=new JSONObject();
         JSONObject series2=new JSONObject();
+        JSONObject series3=new JSONObject();
+        JSONObject series4=new JSONObject();
         series1.put("key","coat pocket");
         series2.put("key", "trousers pocket");
+        series3.put("key","hand");
+        series4.put("key","handbag");
         JSONArray values1=new JSONArray();
         JSONArray values2=new JSONArray();
+        JSONArray values3=new JSONArray();
+        JSONArray values4=new JSONArray();
         while(result.hasNext()){
             Object[] row= (Object[]) result.next();
             String type= (String) row[0];
@@ -126,12 +132,26 @@ public class SensordataDao {
                 value.put("label",type);
                 value.put("value",count.doubleValue()/25/60);
                 values2.add(value);
+            }else if(position.equals("hand")){
+                JSONObject value=new JSONObject();
+                value.put("label",type);
+                value.put("value",count.doubleValue()/25/60);
+                values3.add(value);
+            }else if(position.equals("handbag")){
+                JSONObject value=new JSONObject();
+                value.put("label",type);
+                value.put("value",count.doubleValue()/25/60);
+                values4.add(value);
             }
         }
         series1.put("values",values1);
         series2.put("values",values2);
+        series3.put("values",values3);
+        series4.put("values",values4);
         data.add(series1);
         data.add(series2);
+        data.add(series3);
+        data.add(series4);
         return data.toJSONString();
     }
 
@@ -142,10 +162,16 @@ public class SensordataDao {
         JSONArray data=new JSONArray();
         JSONObject series1=new JSONObject();
         JSONObject series2=new JSONObject();
+        JSONObject series3=new JSONObject();
+        JSONObject series4=new JSONObject();
         series1.put("key","coat pocket");
         series2.put("key", "trousers pocket");
+        series3.put("key","hand");
+        series4.put("key","handbag");
         JSONArray values1=new JSONArray();
         JSONArray values2=new JSONArray();
+        JSONArray values3=new JSONArray();
+        JSONArray values4=new JSONArray();
         while(result.hasNext()){
             Object[] row= (Object[]) result.next();
             String type= (String) row[0];
@@ -161,12 +187,26 @@ public class SensordataDao {
                 value.put("label",type);
                 value.put("value",count.doubleValue()/25/60);
                 values2.add(value);
+            }else if(position.equals("hand")){
+                JSONObject value=new JSONObject();
+                value.put("label",type);
+                value.put("value",count.doubleValue()/25/60);
+                values3.add(value);
+            }else if(position.equals("handbag")){
+                JSONObject value=new JSONObject();
+                value.put("label",type);
+                value.put("value",count.doubleValue()/25/60);
+                values4.add(value);
             }
         }
         series1.put("values",values1);
         series2.put("values",values2);
+        series3.put("values",values3);
+        series4.put("values",values4);
         data.add(series1);
         data.add(series2);
+        data.add(series3);
+        data.add(series4);
         return data.toJSONString();
     }
 }
